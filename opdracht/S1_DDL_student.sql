@@ -34,6 +34,14 @@
 -- die ervoor zorgt dat alleen 'M' of 'V' als geldige waarde wordt
 -- geaccepteerd. Test deze regel en neem de gegooide foutmelding op als
 -- commentaar in de uitwerking.
+-- Voeg een kolom 'geslacht' toe aan de medewerkerstabel
+ALTER TABLE medewerkers
+ADD COLUMN geslacht CHAR(1);
+
+-- Voeg een beperkingsregel toe voor geslacht
+ALTER TABLE medewerkers
+ADD CONSTRAINT m_geslacht_chk
+CHECK (geslacht IN ('M', 'V'));
 
 
 -- S1.2. Nieuwe afdeling
